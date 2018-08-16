@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  # PROG WEB/AP Server
+  tomcat-8.5:
+    build: ./tomcat-8.5
+    image: tomcat-8.5:1.0
+    ports:
+      - "8080:8080"
+    container_name: tomcat-8.5
+    depends_on:
+      - oracle-12c
+
+  # PROG DB Server
+  oracle-12c:
+    build: ./oracle-12c
+    image: oracle-12c:1.0
+    container_name: oracle-12c
