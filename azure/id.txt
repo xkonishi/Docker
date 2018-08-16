@@ -1,0 +1,2 @@
+Service principal ID: eb6a39fb-98e5-445b-8d7d-6c56d83e0330
+Service principal password: c674c3e4-8296-4aeb-97fd-b4f580a81a29
