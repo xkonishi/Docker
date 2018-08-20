@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  # PROG WEB/AP Server
+  web-app:
+    build: ./web-app
+    image: web-app:1.0
+    ports:
+      - "8080:8080"
+    container_name: web-app
+    depends_on:
+      - database
+
+  # PROG DB Server
+  database:
+    build: ./database
+    image: database:1.0
+    container_name: database
