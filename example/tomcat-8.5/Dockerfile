@@ -28,6 +28,7 @@ ENV PATH ${CATALINA_HOME}/bin;${PATH}
 # COPY tomcat/shared/lib/*.jar ${CATALINA_HOME}/shared/lib/
 # COPY tomcat/webapps/web-app.war ${CATALINA_HOME}/webapps/web-app.war
 # COPY tomcat/webapps/web-sample.war ${CATALINA_HOME}/webapps/web-sample.war
+ONBUILD COPY web-app.war ${CATALINA_HOME}/webapps/web-app.war
 
 # Tomcat start up
 EXPOSE 8080
