@@ -1,0 +1,15 @@
+BEGIN
+  FOR i IN 1..50
+  LOOP
+    INSERT INTO EXAMPLES
+        VALUES (
+          i
+         ,DBMS_RANDOM.STRING('A', 100)
+         ,FLOOR(DBMS_RANDOM.VALUE(1, 100000))
+         ,DBMS_RANDOM.VALUE()
+         ,TO_DATE('19000101','YYYYMMDD') + FLOOR(DBMS_RANDOM.VALUE(1, 365 * 120))
+    );
+  END LOOP;
+END;
+/
+exit;
