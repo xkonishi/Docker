@@ -8,6 +8,8 @@ services:
       - "1521:1521"
       - "5500:5500"
     container_name: orcl
+    environment:
+      - TZ=Asia/Tokyo
     volumes:
       - oradata:/ORCL:rw
 volumes:
