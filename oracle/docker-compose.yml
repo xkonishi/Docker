@@ -9,6 +9,7 @@ services:
       - "5500:5500"
     container_name: orcl
     environment:
+      - NLS_LANG=Japanese_Japan.AL32UTF8
       - TZ=Asia/Tokyo
     volumes:
       - oradata:/ORCL:rw
