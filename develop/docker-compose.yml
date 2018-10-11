@@ -3,16 +3,21 @@ version: '3'
 services:
   # PROG WEB/AP Server
   web-app:
+    hostname: web-app
     build: ./web-app
     image: web-app:1.0
+    container_name: web-app
     ports:
       - "8080:8080"
-    container_name: web-app
+    volumes:
+      - ./:/tmp/work/:ro
+    command: /tmp/work/wait-for-it.sh database:1521 -t 0 bash -c "sleep 30 && /usr/local/apache-tomcat-8.5.32bin/catalina.sh run"
     depends_on:
       - database
 
   # PROG DB Server
   database:
+    hostname: database
     build: ./database
     image: database:1.0
     container_name: database
