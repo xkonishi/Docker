@@ -11,7 +11,7 @@ services:
       - "8080:8080"
     volumes:
       - ./:/tmp/work/:ro
-    command: /tmp/work/wait-for-it.sh database:1521 -t 0 bash -c "sleep 30 && /usr/local/apache-tomcat-8.5.32bin/catalina.sh run"
+    command: /tmp/work/wait-for-it.sh database:1521 -t 0 -- bash -c "sleep 30 && /usr/local/apache-tomcat-8.5.32/bin/catalina.sh run"
     depends_on:
       - database
 
