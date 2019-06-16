@@ -9,3 +9,4 @@ services:
     container_name: tomcat-8.5
     ports:
       - "8080:8080"
+      - "22:22"
