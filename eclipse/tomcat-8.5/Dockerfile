@@ -1,0 +1,30 @@
+FROM centos:7.5.1804
+
+WORKDIR /tmp
+
+# locale
+RUN localedef -i ja_JP -f UTF-8 ja_JP.UTF-8
+RUN echo 'LANG="ja_JP.UTF-8"' >  /etc/locale.conf
+ENV LANG ja_JP.UTF-8
+
+# Java
+COPY jre/jre-8u181-linux-x64.rpm ./
+RUN yum -y localinstall ./jre-8u181-linux-x64.rpm
+
+ENV JAVA_HOME /usr/java/default
+ENV JAVA_VERSION 8u181
+
+# Eclipse
+COPY eclipse/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz ./
+ADD eclipse/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz ./
+
+# Tomcat
+ADD tomcat/apache-tomcat-8.5.32.tar.gz /usr/local
+
+ENV TOMCAT_VERSION 8.5.32
+ENV CATALINA_HOME /usr/local/apache-tomcat-8.5.32
+ENV PATH ${CATALINA_HOME}/bin;${PATH}
+
+# Tomcat start up
+EXPOSE 8080 22
+CMD ${CATALINA_HOME}/bin/catalina.sh run
