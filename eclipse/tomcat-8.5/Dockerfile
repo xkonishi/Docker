@@ -7,6 +7,7 @@ ENV LANG ja_JP.UTF-8
 
 # X Window System
 #RUN yum -y groupinstall "X Window System"
+ENV DISPLAY host.docker.internal:0.0
 
 # Java
 WORKDIR /tmp
