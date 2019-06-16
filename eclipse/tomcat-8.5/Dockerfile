@@ -15,8 +15,7 @@ ENV JAVA_HOME /usr/java/default
 ENV JAVA_VERSION 8u181
 
 # Eclipse
-COPY eclipse/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz ./
-ADD eclipse/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz ./
+ADD eclipse-4.11/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz ./
 
 # Tomcat
 ADD tomcat/apache-tomcat-8.5.32.tar.gz /usr/local
