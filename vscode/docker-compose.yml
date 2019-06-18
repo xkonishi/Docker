@@ -9,3 +9,5 @@ services:
     container_name: centos7
     # ports:
     #  - "22:22"
+    privileged: true
+    command: /sbin/init
