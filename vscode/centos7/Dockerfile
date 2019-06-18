@@ -17,5 +17,10 @@ ENV DISPLAY host.docker.internal:0.0
 #ENV JAVA_HOME /usr/java/default
 #ENV JAVA_VERSION 8u181
 
+# VSCode
+WORKDIR /tmp
+COPY vscode/code-1.35.1-1560350390.el7.x86_64.rpm ./
+#RUN yum -y localinstall ./code-1.35.1-1560350390.el7.x86_64.rpm
+
 EXPOSE 22
 CMD /sbin/init
